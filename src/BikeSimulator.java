@@ -46,7 +46,7 @@ public class BikeSimulator {
        
     }
 
-    private static void processCommand(String command, Bike bike, Grid grid) {
+    private static void processCommand(String commandLine, Bike bike, Grid grid) {
               String[] parts = commandLine.split(" ");
         String command = parts[0].toUpperCase();
 
