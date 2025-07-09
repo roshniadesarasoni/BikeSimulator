@@ -4,8 +4,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class BikeSimulator {
+
+    /**
+     * Main entry point for the Bike Simulator application.
+     * Handles reading commands from a file (if provided) or from standard input,
+     * and processes each command for the bike simulation.
+     */
     public static void main(String[] args) {
-           // Create a 7x7 grid
+        // Create a 7x7 grid
         Grid grid = new Grid(7, 7); // 7x7 grid
         // Create a new Bike instance
         Bike bike = new Bike();
@@ -18,7 +24,7 @@ public class BikeSimulator {
                 reader = new BufferedReader(new FileReader(args[0]));
             } else {
                 // Otherwise, read commands from standard input
-                System.out.println("Enter commands (one per line). Type 'END' or press Ctrl+D to finish.");
+                System.out.println("Enter commands (one per line). Type 'END' ");
                 reader = new BufferedReader(new InputStreamReader(System.in));
             }
 
@@ -42,12 +48,19 @@ public class BikeSimulator {
                 }
             }
         }
-
-       
     }
 
+    /**
+     * Processes a single command line for the bike simulation.
+     * Supports PLACE, FORWARD, TURN_LEFT, TURN_RIGHT, and GPS_REPORT commands.
+     * Ignores invalid commands or commands before the bike is placed.
+     *
+     * @param commandLine The command line string to process
+     * @param bike        The Bike instance to control
+     * @param grid        The Grid instance representing the simulation area
+     */
     private static void processCommand(String commandLine, Bike bike, Grid grid) {
-              String[] parts = commandLine.split(" ");
+        String[] parts = commandLine.split(" ");
         String command = parts[0].toUpperCase();
 
         if (command.equals("PLACE")) {
