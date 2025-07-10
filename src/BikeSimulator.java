@@ -76,7 +76,7 @@ public class BikeSimulator {
                     }
                 } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e) {
                     // Invalid PLACE command format or direction, ignore
-                    // System.err.println("Invalid PLACE command: " + commandLine); // For debugging
+                     System.err.println("Invalid PLACE command: " + commandLine); // For debugging
                 }
             }
         } else if (bike.isPlaced()) { // Only process other commands if the bike has been placed
@@ -95,7 +95,7 @@ public class BikeSimulator {
                     break;
                 default:
                     // Ignore unknown commands
-                    // System.err.println("Unknown command: " + commandLine); // For debugging
+                     System.err.println("Unknown command: " + commandLine); // For debugging
                     break;
             }
         }
